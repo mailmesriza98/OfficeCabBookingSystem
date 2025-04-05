@@ -45,7 +45,26 @@ public class RegisterCab {
             cabcounts.get(cabType).remove(0);
             cabcounts.put(cabType, cabcounts.get(cabType));
         } else{
-            cabId = "Cant assign as no available cabs of type " + cabType;
+            if(cabcounts.keySet().size()>=2){
+                if(cabType == CabType.SEDAN && cabcounts.get(cabType).isEmpty()){
+                    if(!cabcounts.get(CabType.SUV).isEmpty()){
+                        cabId = cabcounts.get(CabType.SUV).get(0).getCabId();
+                        cabcounts.get(CabType.SUV).remove(0);
+                        cabcounts.put(CabType.SUV, cabcounts.get(CabType.SUV));
+                    }else{
+                        cabId = "Cant assign as no available cabs of any type " ;
+                    }
+                } else if(cabType == CabType.SUV && cabcounts.get(cabType).isEmpty()){
+                    if(!cabcounts.get(CabType.SEDAN).isEmpty()){
+                        cabId = cabcounts.get(cabType).get(0).getCabId();
+                        cabcounts.get(CabType.SEDAN).remove(0);
+                        cabcounts.put(CabType.SEDAN, cabcounts.get(CabType.SEDAN));
+                    }else{
+                        cabId = "Cant assign as no available cabs of any type " ;
+                    }
+                }
+            }
+            //cabId = "Cant assign as no available cabs of type " + cabType;
         }
         System.out.println(cabId);
         return cabId;

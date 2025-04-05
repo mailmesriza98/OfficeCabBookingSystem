@@ -12,11 +12,13 @@ public class Main {
         cabScheduler.registercab("1237", "d4", CabType.SUV, 6);
 
 
-
         cabScheduler.schedule_cab("1", "9:00");
         cabScheduler.schedule_cab("2", "9:00");
-        cabScheduler.schedule_cab("3", "9:00");
-        cabScheduler.schedule_cab("4", "9:00");
+        cabScheduler.schedule_cab("3", "10:00");
+        cabScheduler.schedule_cab("4", "10:00");
+        cabScheduler.schedule_cab("5", "9:00");
+        cabScheduler.schedule_cab("6", "9:00");
+        cabScheduler.schedule_cab("7", "9:00");
 
     }
 
